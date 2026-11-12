@@ -1,0 +1,23 @@
+# Visual Studio files
+.vs/
+*.suo
+*.user
+
+# Build output
+bin/
+obj/
+
+# NuGet packages
+packages/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# User-specific files
+*.csproj.user
+git-error.txt
+appsettings.Development.json
+Properties/PublishProfiles/
