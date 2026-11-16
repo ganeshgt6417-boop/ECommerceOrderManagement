@@ -12,7 +12,7 @@ namespace ECommerceOrderManagement.API.Repositories
         Task<Product> AddProductAsync(Product product);
 
         Task<bool> UpdateProductAsync(Product product);
-
+        Task<List<Product>> SearchProductsAsync(string name);
         Task<bool> DeleteProductAsync(int id);
     }
 }

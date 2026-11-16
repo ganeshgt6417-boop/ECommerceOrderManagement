@@ -1,5 +1,4 @@
-﻿
-using ECommerceOrderManagement.API.DTOs;
+﻿using ECommerceOrderManagement.API.DTOs;
 
 namespace ECommerceOrderManagement.API.Services
 {
@@ -12,6 +11,9 @@ namespace ECommerceOrderManagement.API.Services
         Task<ProductResponseDto> CreateProductAsync(ProductCreateDto productDto);
 
         Task<bool> UpdateProductAsync(int id, ProductCreateDto productDto);
+
+        // Search products by name
+        Task<List<ProductResponseDto>> SearchProductsAsync(string name);
 
         Task<bool> DeleteProductAsync(int id);
     }

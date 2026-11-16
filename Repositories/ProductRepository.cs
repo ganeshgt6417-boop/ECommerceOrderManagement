@@ -39,6 +39,12 @@ namespace ECommerceOrderManagement.API.Repositories
 
             return true;
         }
+        public async Task<List<Product>> SearchProductsAsync(string name)
+        {
+            return await _context.Products
+                .Where(p => p.ProductName.Contains(name))
+                .ToListAsync();
+        }
 
         public async Task<bool> DeleteProductAsync(int id)
         {
