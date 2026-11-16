@@ -13,10 +13,10 @@ namespace ECommerceOrderManagement.API.Controllers
 
         public ProductsController(IProductService productService)
         {
-            _productService = productService;
+            _productService = productService; 
         }
 
-        // GET: api/Products
+        // GET: api/Products   
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
@@ -60,8 +60,16 @@ namespace ECommerceOrderManagement.API.Controllers
 
             return NoContent();
         }
+        // GET: api/Products/search?name=laptop  
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchProducts([FromQuery] string name)
+        {
+            var products = await _productService.SearchProductsAsync(name);
 
-        // DELETE: api/Products/1
+            return Ok(products);
+        }
+
+        // DELETE: api/Products/1  
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -71,7 +79,7 @@ namespace ECommerceOrderManagement.API.Controllers
                 return NotFound("Product not found");
 
             return NoContent();
-        }
+        } 
        
     }
 }

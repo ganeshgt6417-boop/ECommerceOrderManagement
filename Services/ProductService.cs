@@ -86,6 +86,20 @@ namespace ECommerceOrderManagement.API.Services
 
             return await _repository.UpdateProductAsync(product);
         }
+        public async Task<List<ProductResponseDto>> SearchProductsAsync(string name)
+        {
+            var products = await _repository.SearchProductsAsync(name);
+
+            return products.Select(p => new ProductResponseDto
+            {
+                ProductId = p.ProductId,
+                ProductName = p.ProductName,
+                Description = p.Description,
+                Price = p.Price,
+                StockQuantity = p.StockQuantity,
+                Category = p.Category
+            }).ToList();
+        }
 
         public async Task<bool> DeleteProductAsync(int id)
         {
